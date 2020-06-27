@@ -8,6 +8,29 @@ import (
 	"strings"
 )
 
+var output []int
+
+func main() {
+	var err1 error
+	var testfile0 []string
+
+	// That's the test file name
+	// this demo get data from the test.txt
+	file, err1 := ioutil.ReadFile("./test.txt")
+	if err1 != nil {
+		fmt.Println(err1)
+	}
+
+	testfile0 = strings.Split(string(file), "\r\n")
+
+	total, _ := strconv.Atoi(testfile0[0])
+	count := 0
+	m := 0
+	list(m, testfile0, count, total)
+	// fmt.Println(output)
+	outPrint(0, output)
+}
+
 func squareSum(n int, arr []string) int {
 	// fmt.Println("传进来的参数，代表个数:", n)
 	// fmt.Println("此时指定奇数行的值：", arr[n-1])
@@ -72,27 +95,4 @@ func list(m int, testfile0 []string, count int, total int) {
 	list(m, testfile0, count, total)
 	// fmt.Println(output)
 	return
-}
-
-var output []int
-
-func main() {
-	var err1 error
-	var testfile0 []string
-
-	// That's the test file name
-	// this demo get data from the test.txt
-	file, err1 := ioutil.ReadFile("test.txt")
-	if err1 != nil {
-		fmt.Println(err1)
-	}
-
-	testfile0 = strings.Split(string(file), "\r\n")
-
-	total, _ := strconv.Atoi(testfile0[0])
-	count := 0
-	m := 0
-	list(m, testfile0, count, total)
-	// fmt.Println(output)
-	outPrint(0, output)
 }
