@@ -65,8 +65,14 @@ func outPrint(i int, output []int) {
 
 func list(m int, testfile0 []string, count int, total int) {
 	if m+1 >= len(testfile0) {
-		// fmt.Println(output)
+		// fmt.Println(count)
+		if count == total {
+			fmt.Println("success, the first line number equal the test line ")
+			return
+		}
+		fmt.Println("error, the first line number not equal the test line")
 		return
+
 	}
 
 	if (m+1)%2 == 0 {
